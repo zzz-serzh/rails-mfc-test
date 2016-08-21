@@ -63,3 +63,10 @@ group :test do
   # Pretty printed test output
   gem 'turn', '~> 0.9.4', :require => false
 end
+
+gem "rspec-rails", :group => [:development, :test]
+
+#against error Could not find a JavaScript runtime
+gem 'execjs'
+gem 'therubyracer'
+
