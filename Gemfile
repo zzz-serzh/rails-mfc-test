@@ -65,6 +65,7 @@ group :test do
 end
 
 gem "rspec-rails", :group => [:development, :test]
+gem 'test-unit', '~> 3.0', :group => [:development, :test]
 
 #against error Could not find a JavaScript runtime
 gem 'execjs'
