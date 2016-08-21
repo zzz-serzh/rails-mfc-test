@@ -37,7 +37,7 @@ class MfcOffice
 
   #Юридический адрес  
   #has 1, :address, :required => true
-  belongs_to :jur_address, 'Address', :key => true
+  belongs_to :jur_address, 'Address', :key => true, :required => true
 
   #Фактический адрес
   #has 1, :address, :required => true
