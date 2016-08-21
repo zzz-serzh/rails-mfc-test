@@ -8,7 +8,8 @@ class MfcOffice
   #property :schedule, String, :length => 128, :required => true
 
   # категория: бэк или фронт. Может завести общий класс [Справочник]?
-  property :type, String, :length => 32, :required => true,  :format => "back|front"
+  property :type, String, :length => 32, :required => true
+  validates_within :type, :set => ['back','front']
 
   #Регистрационный номер ЕСИА
   property :esia, String, :length => 128, :required => true
@@ -21,13 +22,18 @@ class MfcOffice
   #Директор
   property :director, String, :length => 256, :required => true
   #ОГРН
-  property :ogrn, String, :length => 13, :required => true, :format => "^[0-9]{13}$"
+  property :ogrn, String, :length => 13, :required => true
+  validates_format_of :ogrn, :with => /^[0-9]{13}$/
+
   #КПП
-  property :kpp, String, :length => 9, :required => true, :format => "^[0-9]{9}$"
+  property :kpp, String, :length => 9, :required => true
+  validates_format_of :kpp, :with => /^[0-9]{9}$/
   #ОКОГУ
-  property :kpp, String, :length => 7, :required => true, :format => "^[0-9]{7}$"
-  #okpo
-  property :kpp, String, :length => 8, :required => true, :format => "^[0-9]{8}$"
+  property :okogu, String, :length => 7, :required => true
+  validates_format_of :okogu, :with => /^[0-9]{7}$/
+  #ОКПО
+  property :okpo, String, :length => 8, :required => true
+  validates_format_of :okpo, :with => /^[0-9]{8}$/
 
   #Юридический адрес  
   #has 1, :address, :required => true
@@ -38,7 +44,8 @@ class MfcOffice
   belongs_to :actual_address, 'Address', :key => true
 
   #Телефон
-  property :phone, String, :length => 10, :required => true, :format => "^[0-9]{10}$"
+  property :phone, String, :length => 10, :required => true
+  validates_format_of :phone, :with => /^[0-9]{10}$/
   #Сайт
   property :site, String, :length => 256 
   #Электронная почта
