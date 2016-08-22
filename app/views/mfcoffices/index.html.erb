@@ -1,0 +1,16 @@
+<h1>список МФЦ</h1>
+ 
+<table>
+  <tr>
+    <th>Название</th>
+    <th>ЕСИА</th>
+  </tr>
+ 
+  <% @mfcoffices.each do |mfcoffice| %>
+    <tr>
+      <td><%= mfcoffice.name %></td>
+      <td><%= mfcoffice.esia %></td>
+      <td><%= link_to 'Show', mfcoffice_path(mfcoffice) %></td>
+    </tr>
+  <% end %>
+</table>
