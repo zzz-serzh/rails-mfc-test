@@ -51,7 +51,36 @@
     <%= f.text_field :email %>
   </p>
 
+ <p>Юридический адрес</p>
+
+  <p>
+    <%= f.label :индекс %><br>
+    <%= f.text_field :jur_address_zip %>
+  </p>
+
+  <p>
+    <%= f.label :регион %><br>
+    <%= f.text_field :jur_address_country %>
+  </p>
+  <p>
+    <%= f.label :район %><br>
+    <%= f.text_field :jur_address_district %>
+  </p>
+  <p>
+    <%= f.label :'населенный пункт' %><br>
+    <%= f.text_field :jur_address_settlement %>
+  </p>
+  <p>
+    <%= f.label :улица %><br>
+    <%= f.text_field :jur_address_street %>
+  </p>
+  <p>
+    <%= f.label :дом %><br>
+    <%= f.text_field :jur_address_house %>
+  </p>
+
   <p>
     <%= f.submit %>
   </p>
+
 <% end %>
