@@ -4,13 +4,17 @@
   <tr>
     <th>Название</th>
     <th>ЕСИА</th>
+    <th>Директор</th>
+    <th>ОГРН</th>
   </tr>
  
   <% @mfcoffices.each do |mfcoffice| %>
     <tr>
       <td><%= mfcoffice.name %></td>
       <td><%= mfcoffice.esia %></td>
-      <td><%= link_to 'Show', mfcoffice_path(mfcoffice) %></td>
+      <td><%= mfcoffice.director %></td>
+      <td><%= mfcoffice.ogrn %></td>
+      <td><%= link_to 'Посмотреть', mfcoffice_path(mfcoffice.id) %></td>
     </tr>
   <% end %>
 </table>
