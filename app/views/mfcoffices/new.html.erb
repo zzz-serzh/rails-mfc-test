@@ -1,83 +1,114 @@
 <%= form_for :mfcoffice, url: mfcoffices_path do |f| %>
   <p>
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
+    <%= f.label :'Тип офиса' %><br>
+    <%= f.text_field :type, :value => 'back' %>
   </p>
  
   <p>
     <%= f.label :esia %><br>
-    <%= f.text_field :esia %>
+    <%= f.text_field :esia, :value => '123' %>
   </p>
  
   <p>
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :value => 'Главный офис' %>
   </p>
   <p>
     <%= f.label :short_name %><br>
-    <%= f.text_field :short_name %>
+    <%= f.text_field :short_name, :value => 'Главный' %>
   </p>
   <p>
     <%= f.label :director %><br>
-    <%= f.text_field :director %>
+    <%= f.text_field :director, :value => 'Директор' %>
   </p>
   <p>
     <%= f.label :ogrn %><br>
-    <%= f.text_field :ogrn %>
+    <%= f.text_field :ogrn, :value => '1234567890123' %>
   </p>
   <p>
     <%= f.label :kpp %><br>
-    <%= f.text_field :kpp %>
+    <%= f.text_field :kpp, :value => '123456789' %>
   </p>
   <p>
     <%= f.label :okogu %><br>
-    <%= f.text_field :okogu %>
+    <%= f.text_field :okogu, :value => '1234567' %>
   </p>
   <p>
     <%= f.label :okpo %><br>
-    <%= f.text_field :okpo %>
+    <%= f.text_field :okpo, :value => '12345678' %>
   </p>
   <p>
     <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, :value => '1234567890' %>
   </p>
 
   <p>
     <%= f.label :site %><br>
-    <%= f.text_field :site %>
+    <%= f.text_field :site, :value => 'www.ru' %>
   </p>
   <p>
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :value => 'a@b.ru' %>
   </p>
 
  <p>Юридический адрес</p>
 
   <p>
     <%= f.label :индекс %><br>
-    <%= f.text_field :jur_address_zip %>
+    <%= f.text_field :jur_address_zip, :value => '123123' %>
   </p>
 
   <p>
     <%= f.label :регион %><br>
-    <%= f.text_field :jur_address_country %>
+    <%= f.text_field :jur_address_country, :value => 'Коми' %>
   </p>
   <p>
     <%= f.label :район %><br>
-    <%= f.text_field :jur_address_district %>
+    <%= f.text_field :jur_address_district, :value => '' %>
   </p>
   <p>
     <%= f.label :'населенный пункт' %><br>
-    <%= f.text_field :jur_address_settlement %>
+    <%= f.text_field :jur_address_settlement, :value => 'Сык' %>
   </p>
   <p>
     <%= f.label :улица %><br>
-    <%= f.text_field :jur_address_street %>
+    <%= f.text_field :jur_address_street, :value => 'Улица' %>
   </p>
   <p>
     <%= f.label :дом %><br>
-    <%= f.text_field :jur_address_house %>
+    <%= f.text_field :jur_address_house, :value => '111' %>
   </p>
+
+
+ <!-- FIXME: копипаста юр адреса. может можно объединить? -->
+ <p>Фактический адресс</p>
+
+  <p>
+    <%= f.label :индекс %><br>
+    <%= f.text_field :actual_address_zip, :value => '123123' %>
+  </p>
+
+  <p>
+    <%= f.label :регион %><br>
+    <%= f.text_field :actual_address_country, :value => 'Коми' %>
+  </p>
+  <p>
+    <%= f.label :район %><br>
+    <%= f.text_field :actual_address_district, :value => '' %>
+  </p>
+  <p>
+    <%= f.label :'населенный пункт' %><br>
+    <%= f.text_field :actual_address_settlement, :value => 'Сык' %>
+  </p>
+  <p>
+    <%= f.label :улица %><br>
+    <%= f.text_field :actual_address_street, :value => 'Улица' %>
+  </p>
+  <p>
+    <%= f.label :дом %><br>
+    <%= f.text_field :actual_address_house, :value => '111' %>
+  </p>
+
 
   <p>
     <%= f.submit %>

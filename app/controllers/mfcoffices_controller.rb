@@ -5,16 +5,35 @@ class MfcofficesController < ApplicationController
 
  def create
  
-  @v_yur_address = Address.create(zip:"123456",country:"komi",settlement:"syk",street:"lenin","house":1)
-  @v_actual_address = Address.create(zip:"123456",country:"komi",settlement:"syk",street:"lenin","house":1)
+  #@v_yur_address = Address.create(zip:"123456",country:"komi",settlement:"syk",street:"lenin","house":1)
+  #FIXME: перед созданием адреса пробовать его найти и использовать заново.
+  @v_yur_address = Address.create(
+	zip: params[:mfcoffice][:jur_address_zip],
+	country: params[:mfcoffice][:jur_address_country],
+	settlement: params[:mfcoffice][:jur_address_settlement],
+	street: params[:mfcoffice][:jur_address_street],
+	house: params[:mfcoffice][:jur_address_house])
+
+  @v_actual_address = Address.create(
+        zip: params[:mfcoffice][:actual_address_zip],
+        country: params[:mfcoffice][:actual_address_country],
+        settlement: params[:mfcoffice][:actual_address_settlement],
+        street: params[:mfcoffice][:actual_address_street],
+        house: params[:mfcoffice][:actual_address_house])
+
+
+  #@v_actual_address = Address.create(zip:"123456",country:"komi",settlement:"syk",street:"lenin","house":1)
   
-  @v_yur_address.save()
-  @v_actual_address.save()
+  # save проиходит при create
+  #@v_yur_address.save()
+  #@v_actual_address.save()
   
   #@mfcoffice = MfcOffice.new(params[:mfcoffice],@v_yur_address,@v_yur_address,@v_actual_address)
   #puts "aaaaaaaaaaaaaaaaaaaaaaaa-----------------------------"
   #puts params[:mfcoffice][:name]
+ 
 
+   #FIXME: может можно как то поизящнее передать все параметры?
    @mfcoffice = MfcOffice.new(
         type: params[:mfcoffice][:type],
         esia: params[:mfcoffice][:esia],
@@ -50,9 +69,18 @@ class MfcofficesController < ApplicationController
  end
 
  def show
+  #puts params[:id]
   #наебалово! возвращает Enumerator
   #@mfcoffice = MfcOffice.find(params[:id])
-  @mfcoffice = MfcOffice.find(params[:id]).next
+  #FIXME: если вернул nil, то что будет?
+  #@mfcoffice = MfcOffice.find(params[:id]).next
+
+  #wtf получаю ошибку 
+  #The number of arguments for the key is invalid, expected 3 but was 1
+  # дока врет? у меня только один ключ
+  #@mfcoffice = MfcOffice.get(params[:id])
+  #FIXME: так делать неправильно(?) разобраться, почему не работает get
+  @mfcoffice = MfcOffice.first(:id => params[:id])
  end
 
   def index
