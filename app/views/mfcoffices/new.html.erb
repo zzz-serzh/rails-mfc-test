@@ -1,4 +1,20 @@
+<h1>Создание офиса</h1>
 <%= form_for :mfcoffice, url: mfcoffices_path do |f| %>
+
+  <% if @mfcoffice.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+       Ошибки при сохранении:
+      </h2>
+      <ul>
+      <!-- TODO: как их перевести с английского? Как задать нормальный человекопонятный формат?  -->
+        <% @mfcoffice.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :'Тип офиса' %><br>
     <%= f.text_field :type, :value => 'back' %>

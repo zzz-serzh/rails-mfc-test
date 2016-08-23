@@ -15,6 +15,10 @@
       <td><%= mfcoffice.director %></td>
       <td><%= mfcoffice.ogrn %></td>
       <td><%= link_to 'Посмотреть', mfcoffice_path(mfcoffice.id) %></td>
+      <td><%= link_to 'Редактировать', edit_mfcoffice_path(mfcoffice.id) %></td>
+      <td><%= link_to 'Удалить', mfcoffice_path(mfcoffice.id),
+              method: :delete,
+              data: { confirm: 'Вы уверены?' } %></td>
     </tr>
   <% end %>
 </table>

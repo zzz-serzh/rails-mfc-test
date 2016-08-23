@@ -1,0 +1,77 @@
+<h1>Редактирование офиса</h1>
+<%= form_for :mfcoffice, url: mfcoffice_path(@mfcoffice.id), method: :put do |f| %>
+
+  <% if @mfcoffice.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+       Ошибки при сохранении:
+      </h2>
+      <ul>
+      <!-- TODO: как их перевести с английского? Как задать нормальный человекопонятный формат?  -->
+        <% @mfcoffice.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :'Тип офиса' %><br>
+    <%= f.text_field :type %>
+  </p>
+ 
+  <p>
+    <%= f.label :esia %><br>
+    <%= f.text_field :esia %>
+  </p>
+ 
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :short_name %><br>
+    <%= f.text_field :short_name %>
+  </p>
+  <p>
+    <%= f.label :director %><br>
+    <%= f.text_field :director %>
+  </p>
+  <p>
+    <%= f.label :ogrn %><br>
+    <%= f.text_field :ogrn %>
+  </p>
+  <p>
+    <%= f.label :kpp %><br>
+    <%= f.text_field :kpp %>
+  </p>
+  <p>
+    <%= f.label :okogu %><br>
+    <%= f.text_field :okogu %>
+  </p>
+  <p>
+    <%= f.label :okpo %><br>
+    <%= f.text_field :okpo %>
+  </p>
+  <p>
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </p>
+
+  <p>
+    <%= f.label :site %><br>
+    <%= f.text_field :site %>
+  </p>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </p>
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to '<<', mfcoffices_path %>

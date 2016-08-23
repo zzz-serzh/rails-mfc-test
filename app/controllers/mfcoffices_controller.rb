@@ -3,6 +3,32 @@ class MfcofficesController < ApplicationController
  def new
  end
 
+  def destroy
+    #@mfcoffice = MfcOffice.find(params[:id])
+    @mfcoffice = MfcOffice.first(:id => params[:id])
+    @mfcoffice.destroy
+ 
+    redirect_to mfcoffices_path
+  end
+
+def update
+  #@mfcoffice = MfcOffice.find(params[:id])
+  @mfcoffice = MfcOffice.first(:id => params[:id])
+
+  if @mfcoffice.update(params)
+    #redirect_to @mfcoffice
+    redirect_to(mfcoffice_path(@mfcoffice.id))
+  else
+    render 'edit'
+  end
+end
+
+def edit
+  #@mfcoffice = MfcOffice.find(params[:id])
+  @mfcoffice = MfcOffice.first(:id => params[:id])
+  @jur_address = @mfcoffice.jur_address
+end
+
  def create
  
   #@v_yur_address = Address.create(zip:"123456",country:"komi",settlement:"syk",street:"lenin","house":1)
@@ -58,14 +84,18 @@ class MfcofficesController < ApplicationController
     #puts "ok"
     #puts @mfcoffice.id
     #puts @mfcoffice.name
+
+    redirect_to(mfcoffice_path(@mfcoffice.id))
+    # не работает, хотя по доке должна
+    #redirect_to @mfcoffice
    else
-     @mfcoffice.errors.each do |e|
-       puts e
-    end
+     #@mfcoffice.errors.each do |e|
+     #  puts e
+     render 'new'
    end
 
   #@redirect_to @mfcoffice_url
-  redirect_to(mfcoffice_path(@mfcoffice.id))
+  #@redirect_to(mfcoffice_path(@mfcoffice.id))
  end
 
  def show

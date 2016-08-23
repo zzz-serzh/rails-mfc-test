@@ -112,4 +112,5 @@
   <%= @mfcoffice.actual_address.building %>
 </p>
 
-<%= link_to '<<', mfcoffices_path %>
+<%= link_to '<<', mfcoffices_path %><br>
+<%= link_to 'Редактировать', edit_mfcoffice_path(@mfcoffice.id) %>
