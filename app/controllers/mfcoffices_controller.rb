@@ -1,6 +1,7 @@
 class MfcofficesController < ApplicationController
 
  def new
+  @mfcoffice = MfcOffice.new
  end
 
   def destroy
