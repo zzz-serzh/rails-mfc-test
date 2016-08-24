@@ -1,5 +1,5 @@
-<h1>Редактирование офиса</h1>
-<%= form_for :mfcoffice, url: mfcoffice_path(@mfcoffice.id), method: :put do |f| %>
+<h1 class="text-center">Редактирование офиса</h1>
+<%= form_for :mfcoffice, :html => {:class => 'form-horizontal'}, url: mfcoffice_path(@mfcoffice.id), method: :put do |f| %>
 
   <% if @mfcoffice.errors.any? %>
     <div id="error_explanation">
@@ -15,63 +15,63 @@
     </div>
   <% end %>
 
-  <p>
-    <%= f.label :'Тип офиса' %><br>
-    <%= f.text_field :type %>
-  </p>
+ <!-- FIXME: не редактируются адреса. разобраться, как сделать --->
+
+  <div class="form-group">
+    <%= f.label :'Тип офиса', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :type, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'Регистрационный номер ЕСИА', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :esia, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'Наименование офиса', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :name, class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Краткое наименование офиса', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :short_name, class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Директор', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :director, class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'ОГРН', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :ogrn, class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'КПП', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :kpp, class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'ОКОГУ', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :okogu, class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'ОКПО', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :okpo, class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Телефон', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :phone, class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'Сайт', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :site, class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Электронная почта', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :email, class: "form-control" %></div>
+  </div>
+
  
-  <p>
-    <%= f.label :esia %><br>
-    <%= f.text_field :esia %>
-  </p>
- 
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :short_name %><br>
-    <%= f.text_field :short_name %>
-  </p>
-  <p>
-    <%= f.label :director %><br>
-    <%= f.text_field :director %>
-  </p>
-  <p>
-    <%= f.label :ogrn %><br>
-    <%= f.text_field :ogrn %>
-  </p>
-  <p>
-    <%= f.label :kpp %><br>
-    <%= f.text_field :kpp %>
-  </p>
-  <p>
-    <%= f.label :okogu %><br>
-    <%= f.text_field :okogu %>
-  </p>
-  <p>
-    <%= f.label :okpo %><br>
-    <%= f.text_field :okpo %>
-  </p>
-  <p>
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </p>
-
-  <p>
-    <%= f.label :site %><br>
-    <%= f.text_field :site %>
-  </p>
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
-
-
-  <p>
-    <%= f.submit %>
-  </p>
+    <%= f.submit "Сохранить", class: "btn btn-default btn-primary" %>
 
 <% end %>
 
-<%= link_to '<<', mfcoffices_path %>
+<%= link_to '<<', mfcoffices_path, class: 'btn btn-success btn-primary' %>
