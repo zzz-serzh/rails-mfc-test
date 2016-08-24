@@ -1,4 +1,4 @@
-<h1>Создание офиса</h1>
+<h1 class="text-center">Создание офиса</h1>
 <%= form_for :mfcoffice, :html => {:class => 'form-horizontal'}, url: mfcoffices_path do |f| %>
 
   <% if @mfcoffice.errors.any? %>
@@ -15,121 +15,130 @@
     </div>
   <% end %>
 
-  <p>
-    <%= f.label :'Тип офиса' %><br>
-    <%= f.text_field :type, :value => 'back' %>
-  </p>
+<!-- извините за форматирование. работаю в nano -->
+<!-- TODO: можно ли автосгенерировать эту шляпу?  -->
+
+<div class="form-group">
+    <%= f.label :'Тип офиса', class: "col-md-4 control-label" %>
+ <div class="col-md-4">
+    <%= f.text_field :type, :value => 'back', class: "form-control" %>
+ </div>
+</div> 
+
+<div class="form-group">
+    <%= f.label 'Регистрационный номер ЕСИА', class: "col-md-4 control-label" %>
+ <div class="col-md-4">
+    <%= f.text_field :esia, :value => '123', class: "form-control" %>
+ </div>
+</div>
+
+  <div class="form-group">
+    <%= f.label 'Наименование офиса', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :name, :value => 'Главный офис', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Краткое наименование офиса', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :short_name, :value => 'Главный', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Директор', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :director, :value => 'Директор', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'ОГРН', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :ogrn, :value => '1234567890123', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'КПП', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :kpp, :value => '123456789', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'ОКОГУ', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :okogu, :value => '1234567', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'ОКПО', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :okpo, :value => '12345678', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Телефон', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :phone, :value => '1234567890', class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'Сайт', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :site, :value => 'www.ru', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Электронная почта', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :email, :value => 'a@b.ru', class: "form-control" %></div>
+  </div>
+
+
+ <h3 class="text-center">Юридический адрес</h3>
+
+ <div class="form-group">
+    <%= f.label :индекс, class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :jur_address_zip, :value => '123123', class: "form-control" %></div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :регион, class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :jur_address_country, :value => 'Коми', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label :район, class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :jur_address_district, :value => '', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label :'населенный пункт', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :jur_address_settlement, :value => 'Сык', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label :улица, class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :jur_address_street, :value => 'Улица', class: "form-control" %></div>
+  </div>
  
-  <p>
-    <%= f.label 'Регистрационный номер ЕСИА' %><br>
-    <%= f.text_field :esia, :value => '123' %>
-  </p>
- 
-  <p>
-    <%= f.label 'Наименование офиса' %><br>
-    <%= f.text_field :name, :value => 'Главный офис' %>
-  </p>
-  <p>
-    <%= f.label 'Краткое наименование офиса' %><br>
-    <%= f.text_field :short_name, :value => 'Главный' %>
-  </p>
-  <p>
-    <%= f.label 'Директор' %><br>
-    <%= f.text_field :director, :value => 'Директор' %>
-  </p>
-  <p>
-    <%= f.label 'ОГРН' %><br>
-    <%= f.text_field :ogrn, :value => '1234567890123' %>
-  </p>
-  <p>
-    <%= f.label 'КПП' %><br>
-    <%= f.text_field :kpp, :value => '123456789' %>
-  </p>
-  <p>
-    <%= f.label 'ОКОГУ' %><br>
-    <%= f.text_field :okogu, :value => '1234567' %>
-  </p>
-  <p>
-    <%= f.label 'ОКПО' %><br>
-    <%= f.text_field :okpo, :value => '12345678' %>
-  </p>
-  <p>
-    <%= f.label 'Телефон' %><br>
-    <%= f.text_field :phone, :value => '1234567890' %>
-  </p>
-
-  <p>
-    <%= f.label 'Сайт' %><br>
-    <%= f.text_field :site, :value => 'www.ru' %>
-  </p>
-  <p>
-    <%= f.label 'Электронная почта' %><br>
-    <%= f.text_field :email, :value => 'a@b.ru' %>
-  </p>
-
- <p>Юридический адрес</p>
-
-  <p>
-    <%= f.label :индекс %><br>
-    <%= f.text_field :jur_address_zip, :value => '123123' %>
-  </p>
-
-  <p>
-    <%= f.label :регион %><br>
-    <%= f.text_field :jur_address_country, :value => 'Коми' %>
-  </p>
-  <p>
-    <%= f.label :район %><br>
-    <%= f.text_field :jur_address_district, :value => '' %>
-  </p>
-  <p>
-    <%= f.label :'населенный пункт' %><br>
-    <%= f.text_field :jur_address_settlement, :value => 'Сык' %>
-  </p>
-  <p>
-    <%= f.label :улица %><br>
-    <%= f.text_field :jur_address_street, :value => 'Улица' %>
-  </p>
-  <p>
-    <%= f.label :дом %><br>
-    <%= f.text_field :jur_address_house, :value => '111' %>
-  </p>
+  <div class="form-group">
+    <%= f.label :дом, class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :jur_address_house, :value => '111', class: "form-control" %></div>
+  </div>
 
 
  <!-- FIXME: копипаста юр адреса. может можно объединить? -->
- <p>Фактический адресс</p>
 
-  <p>
-    <%= f.label :индекс %><br>
-    <%= f.text_field :actual_address_zip, :value => '123123' %>
-  </p>
+ <h3 class="text-center">Фактический адресс</h3>
 
-  <p>
-    <%= f.label :регион %><br>
-    <%= f.text_field :actual_address_country, :value => 'Коми' %>
-  </p>
-  <p>
-    <%= f.label :район %><br>
-    <%= f.text_field :actual_address_district, :value => '' %>
-  </p>
-  <p>
-    <%= f.label :'населенный пункт' %><br>
-    <%= f.text_field :actual_address_settlement, :value => 'Сык' %>
-  </p>
-  <p>
-    <%= f.label :улица %><br>
-    <%= f.text_field :actual_address_street, :value => 'Улица' %>
-  </p>
-  <p>
-    <%= f.label :дом %><br>
-    <%= f.text_field :actual_address_house, :value => '111' %>
-  </p>
+  <div class="form-group">
+    <%= f.label :индекс, class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :actual_address_zip, :value => '123123', class: "form-control" %></div>
+  </div>
 
+  <div class="form-group">
+    <%= f.label :регион, class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :actual_address_country, :value => 'Коми', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label :район, class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :actual_address_district, :value => '', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label :'населенный пункт', class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :actual_address_settlement, :value => 'Сык', class: "form-control" %></div>
+  </div>
 
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="form-group">
+    <%= f.label :улица, class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :actual_address_street, :value => 'Улица', class: "form-control" %></div>
+  </div>
+  <div class="form-group">
+    <%= f.label :дом, class: "col-md-4 control-label" %>
+    <div class="col-md-4"><%= f.text_field :actual_address_house, :value => '111', class: "form-control" %></div>
+  </div>
+ 
+    <%= f.submit "Сохранить", class: "btn btn-default btn-primary" %>
 
 <% end %>
 
-<%= link_to '<<', mfcoffices_path %>
+<!-- FIXME: прлепить кнопку к предыдущей.  -->
+<%= link_to '<<', mfcoffices_path, class: 'btn btn-success btn-primary' %>

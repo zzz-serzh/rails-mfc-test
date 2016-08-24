@@ -112,5 +112,5 @@
   <%= @mfcoffice.actual_address.building %>
 </p>
 
-<%= link_to '<<', mfcoffices_path %><br>
-<%= link_to 'Редактировать', edit_mfcoffice_path(@mfcoffice.id) %>
+<%= link_to '<<', mfcoffices_path, class: 'btn btn-success btn-primary' %><br>
+<%= link_to 'Редактировать', edit_mfcoffice_path(@mfcoffice.id), class: "btn btn-default btn-primary" %>
