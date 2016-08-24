@@ -5,6 +5,7 @@ class MfcofficesController < ApplicationController
 
   def destroy
     #@mfcoffice = MfcOffice.find(params[:id])
+    #FIXME: если объект не найден, что делать? как показывать ошибку?
     @mfcoffice = MfcOffice.first(:id => params[:id])
     @mfcoffice.destroy
  
@@ -14,8 +15,23 @@ class MfcofficesController < ApplicationController
 def update
   #@mfcoffice = MfcOffice.find(params[:id])
   @mfcoffice = MfcOffice.first(:id => params[:id])
-
-  if @mfcoffice.update(params)
+  #FIXME: если объект не найден, что делать?
+  #FIXME: не передаются адреса для правки. как их передать в одной форме? разобраться.
+  #if @mfcoffice.update(params)
+  if @mfcoffice.update(
+   :type => params[:mfcoffice][:type],
+   :esia => params[:mfcoffice][:esia],
+   :name => params[:mfcoffice][:name],
+   :short_name => params[:mfcoffice][:short_name],
+   :director => params[:mfcoffice][:director],
+   :ogrn => params[:mfcoffice][:ogrn],
+   :kpp => params[:mfcoffice][:kpp],
+   :okogu => params[:mfcoffice][:okogu],
+   :okpo => params[:mfcoffice][:okpo],
+   :phone => params[:mfcoffice][:phone],
+   :site => params[:mfcoffice][:site],
+   :email => params[:mfcoffice][:email]
+  )
     #redirect_to @mfcoffice
     redirect_to(mfcoffice_path(@mfcoffice.id))
   else
