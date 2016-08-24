@@ -1,11 +1,15 @@
 <h1>список МФЦ</h1>
- 
-<table>
+
+<div class="table-responsive"> 
+<table class="table table-striped table-hover">
   <tr>
     <th>Название</th>
     <th>ЕСИА</th>
     <th>Директор</th>
     <th>ОГРН</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
  
   <% @mfcoffices.each do |mfcoffice| %>
@@ -14,11 +18,12 @@
       <td><%= mfcoffice.esia %></td>
       <td><%= mfcoffice.director %></td>
       <td><%= mfcoffice.ogrn %></td>
-      <td><%= link_to 'Посмотреть', mfcoffice_path(mfcoffice.id) %></td>
-      <td><%= link_to 'Редактировать', edit_mfcoffice_path(mfcoffice.id) %></td>
-      <td><%= link_to 'Удалить', mfcoffice_path(mfcoffice.id),
+      <td><%= link_to 'Посмотреть', mfcoffice_path(mfcoffice.id), class: 'btn btn-success btn-xs' %></td>
+      <td><%= link_to 'Редактировать', edit_mfcoffice_path(mfcoffice.id), class: 'btn btn-info btn-xs' %></td>
+      <td><%= link_to 'Удалить', mfcoffice_path(mfcoffice.id), class: 'btn btn-danger btn-xs',
               method: :delete,
               data: { confirm: 'Вы уверены?' } %></td>
     </tr>
   <% end %>
 </table>
+<div>

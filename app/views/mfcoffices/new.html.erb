@@ -1,5 +1,5 @@
 <h1>Создание офиса</h1>
-<%= form_for :mfcoffice, url: mfcoffices_path do |f| %>
+<%= form_for :mfcoffice, :html => {:class => 'form-horizontal'}, url: mfcoffices_path do |f| %>
 
   <% if @mfcoffice.errors.any? %>
     <div id="error_explanation">
@@ -21,49 +21,49 @@
   </p>
  
   <p>
-    <%= f.label :esia %><br>
+    <%= f.label 'Регистрационный номер ЕСИА' %><br>
     <%= f.text_field :esia, :value => '123' %>
   </p>
  
   <p>
-    <%= f.label :name %><br>
+    <%= f.label 'Наименование офиса' %><br>
     <%= f.text_field :name, :value => 'Главный офис' %>
   </p>
   <p>
-    <%= f.label :short_name %><br>
+    <%= f.label 'Краткое наименование офиса' %><br>
     <%= f.text_field :short_name, :value => 'Главный' %>
   </p>
   <p>
-    <%= f.label :director %><br>
+    <%= f.label 'Директор' %><br>
     <%= f.text_field :director, :value => 'Директор' %>
   </p>
   <p>
-    <%= f.label :ogrn %><br>
+    <%= f.label 'ОГРН' %><br>
     <%= f.text_field :ogrn, :value => '1234567890123' %>
   </p>
   <p>
-    <%= f.label :kpp %><br>
+    <%= f.label 'КПП' %><br>
     <%= f.text_field :kpp, :value => '123456789' %>
   </p>
   <p>
-    <%= f.label :okogu %><br>
+    <%= f.label 'ОКОГУ' %><br>
     <%= f.text_field :okogu, :value => '1234567' %>
   </p>
   <p>
-    <%= f.label :okpo %><br>
+    <%= f.label 'ОКПО' %><br>
     <%= f.text_field :okpo, :value => '12345678' %>
   </p>
   <p>
-    <%= f.label :phone %><br>
+    <%= f.label 'Телефон' %><br>
     <%= f.text_field :phone, :value => '1234567890' %>
   </p>
 
   <p>
-    <%= f.label :site %><br>
+    <%= f.label 'Сайт' %><br>
     <%= f.text_field :site, :value => 'www.ru' %>
   </p>
   <p>
-    <%= f.label :email %><br>
+    <%= f.label 'Электронная почта' %><br>
     <%= f.text_field :email, :value => 'a@b.ru' %>
   </p>
 
