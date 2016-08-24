@@ -71,3 +71,5 @@ gem 'test-unit', '~> 3.0', :group => [:development, :test]
 gem 'execjs'
 gem 'therubyracer'
 
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
